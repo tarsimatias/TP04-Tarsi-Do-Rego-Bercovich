@@ -13,8 +13,11 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    private bd BD = new bd();
+
     public IActionResult Index()
     {
+        ViewBag.Figuritas = BD.ObtenerFiguritas();
         return View();
     }
 
