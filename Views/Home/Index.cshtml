@@ -9,5 +9,11 @@
 }
 else
 {
-
+    @foreach(var figu in Figuritas)
+    {
+        <p>@figu.id</p>
+        <p>@figu.idJugador</p>
+        <p>@figu.cantidadFiguritas</p>
+        <p>@figu.pegada</p>
+    }
 }

@@ -20,4 +20,20 @@ public List<Figurita> ObtenerFiguritas()
 
     }
 
+    public List<Figurita> ObtenerSobre()
+    {
+//esto agarra la lista de figus, y crea una lista vacia. despues agarra una figu random y la agrega a la lista vacia, y lo repite 5 veces. 
+//retorna una lista de 5 figus random. 
+        List<Figurita> todasfigus = ObtenerFiguritas();
+        List<Figurita> SobreFigus = new List<Figurita>();
+        for (int i = 0; i < 5; i++)
+        {
+            int random = Random.Shared.Next(todasfigus.Count);
+            SobreFigus.Add(todasfigus[random]);
+        }
+        return SobreFigus;
+    }
+
+
+
 }
