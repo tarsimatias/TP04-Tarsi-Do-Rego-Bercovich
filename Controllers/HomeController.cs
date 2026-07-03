@@ -20,11 +20,13 @@ public class HomeController : Controller
         ViewBag.Figuritas = BD.ObtenerFiguritas();
         return View();
     }
-
-    public IActionResult Privacy()
+    public IActionResult AbrirPaquete()
     {
+       
         return View();
     }
+
+    
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

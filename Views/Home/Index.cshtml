@@ -2,8 +2,15 @@
     ViewData["Title"] = "Home Page";
     var Figuritas = ViewBag.Figuritas as List<Figurita>;
 }
+<body>
+    <header>
+<a href="@Url.Action("AbrirPaquete", "Home")">Abrir Paquete</a> 
+<a href="@Url.Action("index", "Home")">Ver album</a>    
+    </header>
 
-@if (Figuritas == null || Figuritas.Count == 0)
+    <main>
+    <h1> Bienvenido al album virtual de la Fifa 2026
+      @if (Figuritas == null || Figuritas.Count == 0)
 {
     <p>No hay Figuritas cargadas.</p>
 }
@@ -23,3 +30,6 @@ else
         </div>
     }
 }
+    </main>
+</body>
+
