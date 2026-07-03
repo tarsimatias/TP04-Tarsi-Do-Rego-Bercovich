@@ -11,9 +11,17 @@ else
 {
     @foreach(var figu in Figuritas)
     {
-        <p>@figu.id</p>
-        <p>@figu.idJugador</p>
-        <p>@figu.cantidadFiguritas</p>
-        <p>@figu.pegada</p>
+        <div>
+        <p>@figu.nombre</p>
+        <p>@figu.pais</p>
+        <p>@figu.posicion</p>
+        <p>@figu.grupo</p>
+        <p>@figu.cantidadFiguritas figuritas conseguidas</p>
+        @if (@figu.pegada == "si") 
+        {<p>Pegada!</p>}
+        else
+        {<p>no fue pegada</p>}
+        <br>
+        </div>
     }
 }

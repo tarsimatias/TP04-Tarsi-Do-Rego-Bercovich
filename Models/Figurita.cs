@@ -2,9 +2,11 @@ namespace tp04.Models;
 
 public class Figurita
 {
-    public int id { get; set; }
-    public int idJugador { get; set; }
     public int cantidadFiguritas { get; set; }
     public string pegada { get; set; }
+    public string nombre { get; set; }
+    public string posicion { get; set; }
+    public string pais { get; set; }
+    public string grupo { get; set; }
 
 }
