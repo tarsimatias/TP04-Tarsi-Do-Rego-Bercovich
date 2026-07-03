@@ -13,7 +13,7 @@ public List<Figurita> ObtenerFiguritas()
     {
         List<Figurita> Figurita = new List <Figurita>();
         using(SqlConnection connection = new SqlConnection(_connectionString)){
-            string query = "select F.cantidadFiguritas, F.pegada, J.nombre, J.posicion, S.pais, S.grupo from Figurita as F LEFT JOIN Jugador as J on F.idJugador = J.id LEFT JOIN Seleccion as S on J.idSeleccion = S.id";
+            string query = "select F.cantidadFiguritas, F.pegada, J.id, J.nombre, J.posicion, S.pais, S.grupo from Figurita as F LEFT JOIN Jugador as J on F.idJugador = J.id LEFT JOIN Seleccion as S on J.idSeleccion = S.id";
             Figurita = connection.Query<Figurita>(query).ToList();
         }
         return Figurita;
