@@ -6,10 +6,10 @@ using tp04.Models;
 public class bd
 {       
 
-private string _connectionString = @"Server=localhost;
-DataBase=Album Virtual;Integrated Security=True;TrustServerCertificate=True;";
+    private string _connectionString = @"Server=localhost;
+    DataBase=Album Virtual;Integrated Security=True;TrustServerCertificate=True;";
 
-public List<Figurita> ObtenerFiguritas()
+    public List<Figurita> ObtenerFiguritas()
     {
         List<Figurita> Figurita = new List <Figurita>();
         using(SqlConnection connection = new SqlConnection(_connectionString)){
@@ -32,6 +32,30 @@ public List<Figurita> ObtenerFiguritas()
             SobreFigus.Add(todasfigus[random]);
         }
         return SobreFigus;
+    }
+
+    public void PegarFigu(List<Figurita> Figuritas)
+    {
+        foreach(Figurita figu in Figuritas) 
+        {
+            using(SqlConnection connection = new SqlConnection(_connectionString))
+            {
+            string query = "select pegada from Figurita where id = " + figu.id;
+            bool pegada = connection.QuerySingleOrDefault<bool>(query);
+
+            //hacer un update para q cantidad = cantidad + 1
+            if(!pegada)
+            {
+                //hacer un update para q pegada = 1 (osea true)
+            }
+
+            //yo esto lo pense con que despues de que abras un sobre te aparezca el boton que te deja hacer esto.
+            //esta funcion recibe la lista de "obtenersobre"
+            //
+
+            }
+
+        }
     }
 
 
