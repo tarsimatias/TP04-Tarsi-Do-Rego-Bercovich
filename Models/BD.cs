@@ -43,16 +43,15 @@ public class bd
             string query = "select pegada from Figurita where id = " + figu.id;
             bool pegada = connection.QuerySingleOrDefault<bool>(query);
 
-            //hacer un update para q cantidad = cantidad + 1
+            string query2 = "update figurita SET cantidadFiguritas = cantidadFiguritas + 1 WHERE id = " + figu.id;
+            connection.Execute(query2);
             if(!pegada)
             {
-                //hacer un update para q pegada = 1 (osea true)
+                string query3 = "update figurita SET pegada = 1 WHERE id = " + figu.id;
+                connection.Execute(query3);
             }
-
             //yo esto lo pense con que despues de que abras un sobre te aparezca el boton que te deja hacer esto.
             //esta funcion recibe la lista de "obtenersobre"
-            //
-
             }
 
         }
