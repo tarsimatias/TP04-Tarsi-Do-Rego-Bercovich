@@ -30,9 +30,15 @@ public IActionResult AbrirPaquete()
 public IActionResult GenerarSobre()
 {
     ViewBag.SobreFigus = BD.ObtenerSobre();
+    
     return View("AbrirPaquete");
 }
- 
+ [HttpPost]
+public IActionResult pegarFigurita()
+{
+BD.PegarFigu(ViewBag.SobreFigus);
+return View("AbrirPaquete");
+}
 
     
 

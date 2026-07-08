@@ -1,7 +1,3 @@
-@{
-    ViewData["Title"] = "Home Page";
-    var Figuritas = ViewBag.SobreFigus as List<Figurita>;
-}
 <body>
     <header>
 <a href="@Url.Action("AbrirPaquete", "Home")">Abrir Paquete</a>    
@@ -10,6 +6,7 @@
 
     <main>
     <h2> Abrí un paquete <h2>
+    
   <form asp-action="GenerarSobre" method="post">
     <button type="submit">Abrir paquete</button>
 </form>
@@ -21,8 +18,11 @@
         <img src="~/images/jugadores/@(figurita.id).svg">
     }
 
-    <button>Pegar figuritas</button>
+   
 }
+ <form asp-action="pegarFigurita" method="post">
+    <button type="submit">Pegar figuritas del paquete</button>
+</form>
 
      </main>
 </body>
