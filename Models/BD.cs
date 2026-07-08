@@ -20,19 +20,18 @@ public class bd
 
     }
 
-    public List<Figurita> ObtenerSobre()
+   public List<Figurita> ObtenerSobre()
+{
+    List<Figurita> todasfigus = ObtenerFiguritas();
+    List<Figurita> SobreFigus = new List<Figurita>();
+    var random = new Random();
+    for (int i = 0; i < 5; i++)
     {
-//esto agarra la lista de figus, y crea una lista vacia. despues agarra una figu random y la agrega a la lista vacia, y lo repite 5 veces. 
-//retorna una lista de 5 figus random. 
-        List<Figurita> todasfigus = ObtenerFiguritas();
-        List<Figurita> SobreFigus = new List<Figurita>();
-        for (int i = 0; i < 5; i++)
-        {
-            int random = Random.Shared.Next(todasfigus.Count);
-            SobreFigus.Add(todasfigus[random]);
-        }
-        return SobreFigus;
+        int indiceAleatorio = random.Next(0, todasfigus.Count);
+        SobreFigus.Add(todasfigus[indiceAleatorio]);
     }
+    return SobreFigus;
+}
 
     public void PegarFigu(List<Figurita> Figuritas)
     {

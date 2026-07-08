@@ -20,11 +20,19 @@ public class HomeController : Controller
         ViewBag.Figuritas = BD.ObtenerFiguritas();
         return View();
     }
-    public IActionResult AbrirPaquete()
-    {
-       
-        return View();
-    }
+[HttpGet]
+public IActionResult AbrirPaquete()
+{
+    return View();
+}
+
+[HttpPost]
+public IActionResult GenerarSobre()
+{
+    ViewBag.SobreFigus = BD.ObtenerSobre();
+    return View("AbrirPaquete");
+}
+ 
 
     
 
