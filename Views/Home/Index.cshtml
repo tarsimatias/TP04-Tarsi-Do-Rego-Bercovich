@@ -2,34 +2,41 @@
     ViewData["Title"] = "Home Page";
     var Figuritas = ViewBag.Figuritas as List<Figurita>;
 }
-<body>
-    <header>
-<a href="@Url.Action("AbrirPaquete", "Home")">Abrir Paquete</a> 
-<a href="@Url.Action("index", "Home")">Ver album</a>    
-    </header>
 
-    <main>
-    <h1> Bienvenido al album virtual de la Fifa 2026
-      @if (Figuritas == null || Figuritas.Count == 0)
+<body>
+<header>
+    <a href="@Url.Action("AbrirPaquete", "Home")">Abrir Paquete</a>
+    <a href="@Url.Action("Index", "Home")">Ver album</a>
+</header>
+
+<main>
+
+<h1 class="titulo">Bienvenido al album virtual de la Fifa 2026</h1>
+
+@if (Figuritas != null && Figuritas.Count(f => f.pegada) == 192)
+{
+    <h1 class="titulo">¡Tu álbum está completo! Felicitaciones!</h1>
+}
+
+@if (Figuritas == null || Figuritas.Count == 0)
 {
     <p>No hay Figuritas cargadas.</p>
 }
 else
 {
-    @foreach(var figu in Figuritas)
+    foreach(var figu in Figuritas)
     {
-        <div>
-        <p>@(figu.Id + ".svg")</p>
-        <img src="~/images/jugadores/@(figu.Id).svg">
-        <p>@figu.cantidadFiguritas figuritas conseguidas</p>
-        @if (@figu.pegada == true) 
-        {<p>Pegada!</p>}
-        else
-        {<p>no fue pegada</p>}
-        <br>
-        </div>
+        @if(figu.pegada)
+        {
+            <div class="album">
+                <img src="~/images/jugadores/@(figu.Id).svg">
+
+                <p>x @figu.cantidadFiguritas</p>
+            </div>
+        }
     }
 }
-    </main>
-</body>
 
+</main>
+
+</body>
