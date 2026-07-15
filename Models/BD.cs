@@ -107,5 +107,49 @@ public List<Figurita> ObtenerFiguritas(List<int> ids)
         }
     }
 }
+public List<Figurita> ObtenerFiguritasPorSeleccion(string pais)
+{
+    List<Figurita> figuritas = new List<Figurita>();
+
+    using(SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = @"
+        SELECT 
+            F.id,
+            F.cantidadFiguritas,
+            F.pegada,
+            J.id as idJugador,
+            J.nombre,
+            J.posicion,
+            S.pais,
+            S.grupo
+        FROM Figurita F
+        INNER JOIN Jugador J ON F.idJugador = J.id
+        INNER JOIN Seleccion S ON J.idSeleccion = S.id
+        WHERE S.pais = @pais";
+
+        figuritas = connection.Query<Figurita>(query, new { pais }).ToList();
+    }
+
+    return figuritas;
+}
+public List<string> ObtenerSeleccionesPegadas()
+{
+    List<string> selecciones = new List<string>();
+
+    using(SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = @"
+        SELECT DISTINCT S.pais
+        FROM Figurita F
+        INNER JOIN Jugador J ON F.idJugador = J.id
+        INNER JOIN Seleccion S ON J.idSeleccion = S.id
+        WHERE F.pegada = 1";
+
+        selecciones = connection.Query<string>(query).ToList();
+    }
+
+    return selecciones;
+}
 
 }

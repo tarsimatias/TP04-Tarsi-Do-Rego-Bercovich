@@ -15,11 +15,7 @@ public class HomeController : Controller
 
     private bd BD = new bd();
 
-    public IActionResult Index()
-    {
-        ViewBag.Figuritas = BD.ObtenerFiguritas();
-        return View();
-    }
+    
 [HttpGet]
 public IActionResult AbrirPaquete()
 {
@@ -50,4 +46,23 @@ public IActionResult pegarFigurita(List<int> ids)
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    
+
+public IActionResult Index(string pais)
+{
+    ViewBag.Selecciones = BD.ObtenerSeleccionesPegadas();
+
+
+    if(string.IsNullOrEmpty(pais) || pais == "Todas")
+    {
+        ViewBag.Figuritas = BD.ObtenerFiguritas();
+    }
+    else
+    {
+        ViewBag.Figuritas = BD.ObtenerFiguritasPorSeleccion(pais);
+    }
+
+
+    return View();
+}
 }

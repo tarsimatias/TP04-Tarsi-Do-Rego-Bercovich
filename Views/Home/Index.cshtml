@@ -12,6 +12,28 @@
 <main>
 
 <h1 class="titulo">Bienvenido al album virtual de la Fifa 2026</h1>
+<form method="get">
+
+<select name="pais">
+
+<option value="Todas">
+Todas
+</option>
+
+@foreach(var seleccion in ViewBag.Selecciones)
+{
+    <option value="@seleccion">
+        @seleccion
+    </option>
+}
+
+</select>
+
+<button>
+Filtrar
+</button>
+
+</form>
 
 @if (Figuritas != null && Figuritas.Count(f => f.pegada) == 192)
 {
