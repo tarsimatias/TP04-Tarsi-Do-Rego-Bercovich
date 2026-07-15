@@ -1,19 +1,127 @@
-
-
-header{
-    display: flex;
-    
-    gap: 50%; 
-    padding: 20px;
-    background-color: black;
-    width: 100%;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #075e2d;
+    color: white;
 }
 
-header a{
-    background-color: rgb(255, 238, 139);
-    padding: 10px 30px;
-    border-radius: 10px;
-    border: 5px solid gold;
+
+/* HEADER */
+
+header {
+    background-color: #006b35;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #e6c200;
+}
+
+
+header a {
+    color: white;
     text-decoration: none;
-    color: gray;
+    margin: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+header a:hover {
+    color: gold;
+}
+
+
+
+/* MAIN */
+
+main {
+    padding: 30px;
+    text-align: center;
+}
+
+
+.titulo {
+    font-size: 40px;
+    text-shadow: 2px 2px 5px black;
+}
+
+
+
+/* FILTRO */
+
+select {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+
+button {
+    padding: 10px 25px;
+    margin-left: 10px;
+
+    background-color: #e6c200;
+    border: none;
+    border-radius: 8px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background-color: gold;
+}
+
+
+
+/* ALBUM */
+
+.contenedor-album {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, 180px);
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+
+
+/* CADA FIGURITA */
+
+.album {
+
+    background-color: white;
+
+    border: 5px solid #e6c200;
+
+    border-radius: 15px;
+
+    padding: 10px;
+
+    box-shadow: 0px 5px 15px black;
+
+}
+
+
+.album img {
+
+    width: 150px;
+    height: 210px;
+
+}
+
+
+.album p {
+
+    color: black;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
 }

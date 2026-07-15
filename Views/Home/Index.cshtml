@@ -39,14 +39,16 @@ Filtrar
 {
     <h1 class="titulo">¡Tu álbum está completo! Felicitaciones!</h1>
 }
-
+g
 @if (Figuritas == null || Figuritas.Count == 0)
 {
     <p>No hay Figuritas cargadas.</p>
 }
 else
 {
-    foreach(var figu in Figuritas)
+    <div class="contenedor-album">
+
+    @foreach(var figu in Figuritas)
     {
         @if(figu.pegada)
         {
@@ -57,7 +59,11 @@ else
             </div>
         }
     }
+
+    </div>
 }
+    
+
 
 </main>
 
