@@ -5,9 +5,6 @@ body {
     color: white;
 }
 
-
-/* HEADER */
-
 header {
     background-color: #006b35;
     padding: 20px;
@@ -29,10 +26,6 @@ header a:hover {
     color: gold;
 }
 
-
-
-/* MAIN */
-
 main {
     padding: 30px;
     text-align: center;
@@ -44,14 +37,11 @@ main {
     text-shadow: 2px 2px 5px black;
 }
 
-
-
-/* FILTRO */
-
 select {
     padding: 10px;
     border-radius: 8px;
     font-size: 16px;
+    background-color: #e6c200;
 }
 
 
@@ -64,7 +54,6 @@ button {
     border-radius: 8px;
 
     font-weight: bold;
-    cursor: pointer;
 }
 
 
@@ -74,26 +63,48 @@ button:hover {
 
 
 
-/* ALBUM */
+/* aca esta el album */
 
 .contenedor-album {
 
+    display: inline-block;
+    margin-top: 40px;
+    width: 100%;
+}
+
+/* cada seleccion los section aca */
+
+.seleccion 
+{
     display: grid;
 
     grid-template-columns: repeat(auto-fill, 180px);
 
     justify-content: center;
 
-    gap: 25px;
+    gap: 5%;
 
-    margin-top: 40px;
+    width: 100%;
+
+    margin-bottom: 3%;
+    padding-top: 1%;
+     padding-bottom: 1%;
+
+
+    background-color: rgba(0, 0, 0, 0.048);
+
+    border-radius: 30px;
+
 }
 
-
+.seleccion h1 {
+    padding-top: 50%;
+    font-weight: bold;
+}
 
 /* CADA FIGURITA */
 
-.album {
+.albumPegada {
 
     background-color: white;
 
@@ -108,7 +119,7 @@ button:hover {
 }
 
 
-.album img {
+.albumPegada img {
 
     width: 150px;
     height: 210px;
@@ -116,7 +127,7 @@ button:hover {
 }
 
 
-.album p {
+.albumPegada p {
 
     color: black;
 
@@ -124,4 +135,48 @@ button:hover {
 
     font-weight: bold;
 
+}
+
+.albumNoPegada {
+
+    background-color: rgba(255, 255, 255, 0.26);
+
+    border: 5px solid #ff0000;
+
+    border-radius: 15px;
+
+    padding: 10px;
+
+    box-shadow: 0px 5px 15px black;
+
+    color: rgba(0, 0, 0, 0.301);
+
+    width: 180px;
+    height: 286px
+
+}
+
+
+.albumNoPegada img {
+
+    width: 150px;
+    height: 210px;
+
+}
+
+
+.albumNoPegada p {
+
+    color: rgba(255, 255, 255, 0.336);
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+.albumNoPegada:hover{
+background-color: rgba(255, 255, 255, 0.151);
+}
+.albumPegada:hover{
+background-color: #fff4b7;
 }

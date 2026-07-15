@@ -50,7 +50,9 @@ public IActionResult pegarFigurita(List<int> ids)
 
 public IActionResult Index(string pais)
 {
-    ViewBag.Selecciones = BD.ObtenerSeleccionesPegadas();
+    ViewBag.SeleccionesPegadas = BD.ObtenerSeleccionesPegadas();
+        ViewBag.Selecciones = BD.ObtenerSelecciones();
+
 
 
     if(string.IsNullOrEmpty(pais) || pais == "Todas")

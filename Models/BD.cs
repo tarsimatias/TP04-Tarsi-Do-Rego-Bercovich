@@ -7,7 +7,7 @@ public class bd
 {       
 
    private string _connectionString =
-@"Server=.\SQLEXPRESS;
+@"Server=localhost;
 Database=Album Virtual;
 Integrated Security=True;
 TrustServerCertificate=True;";
@@ -64,7 +64,8 @@ public List<Figurita> ObtenerFiguritas(List<int> ids)
                          from Figurita as F 
                          LEFT JOIN Jugador as J on F.idJugador = J.id 
                          LEFT JOIN Seleccion as S on J.idSeleccion = S.id
-                         WHERE F.id IN @ids";
+                         WHERE F.id IN @ids
+                         order by F.idJugador asc";
 
         figuritas = connection.Query<Figurita>(query, new { ids }).ToList();
     }
@@ -145,6 +146,24 @@ public List<string> ObtenerSeleccionesPegadas()
         INNER JOIN Jugador J ON F.idJugador = J.id
         INNER JOIN Seleccion S ON J.idSeleccion = S.id
         WHERE F.pegada = 1";
+
+        selecciones = connection.Query<string>(query).ToList();
+    }
+
+    return selecciones;
+}
+
+public List<string> ObtenerSelecciones()
+{
+    List<string> selecciones = new List<string>();
+
+    using(SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = @"
+        SELECT DISTINCT S.pais
+        FROM Figurita F
+        inner JOIN Jugador J ON F.idJugador = J.id
+        inner JOIN Seleccion S ON J.idSeleccion = S.id;";
 
         selecciones = connection.Query<string>(query).ToList();
     }

@@ -20,7 +20,7 @@
 Todas
 </option>
 
-@foreach(var seleccion in ViewBag.Selecciones)
+@foreach(var seleccion in ViewBag.SeleccionesPegadas)
 {
     <option value="@seleccion">
         @seleccion
@@ -39,7 +39,7 @@ Filtrar
 {
     <h1 class="titulo">¡Tu álbum está completo! Felicitaciones!</h1>
 }
-g
+
 @if (Figuritas == null || Figuritas.Count == 0)
 {
     <p>No hay Figuritas cargadas.</p>
@@ -48,20 +48,38 @@ else
 {
     <div class="contenedor-album">
 
+    @foreach(var seleccion in ViewBag.Selecciones)
+{
+    <section class="seleccion">
+    <h1>@seleccion</h1>
+
     @foreach(var figu in Figuritas)
     {
-        @if(figu.pegada)
+        @if(figu.pegada && figu.pais == seleccion)
         {
-            <div class="album">
+            <div class="albumPegada">
                 <img src="~/images/jugadores/@(figu.Id).svg">
 
                 <p>x @figu.cantidadFiguritas</p>
             </div>
         }
+        else if(figu.pais == seleccion)
+        {
+           <div class="albumNoPegada">
+                
+
+                <p>No obtenida</p>
+            </div> 
+        }
     }
 
-    </div>
+    </section>
+
+
 }
+</div>
+}
+
     
 
 
