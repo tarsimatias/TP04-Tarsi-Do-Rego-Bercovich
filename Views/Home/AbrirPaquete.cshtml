@@ -5,7 +5,7 @@
 </header>
 
     <main>
-    <h2> Abrí un paquete <h2>
+    <h2> Abrí un paquete </h2>
     
   <form asp-action="GenerarSobre" method="post">
     <button type="submit">Abrir paquete</button>
@@ -15,14 +15,22 @@
 {
     foreach(var figurita in ViewBag.SobreFigus)
     {
-        <img src="~/images/jugadores/@(figurita.id).svg">
+        <img src="~/images/jugadores/@(figurita.Id).svg">
     }
 
    
-}
+
  <form asp-action="pegarFigurita" method="post">
+
+    @foreach(var figurita in ViewBag.SobreFigus)
+    {
+        <input type="hidden" name="ids" value="@figurita.Id">
+    }
+
     <button type="submit">Pegar figuritas del paquete</button>
+
 </form>
+}
 
      </main>
 </body>

@@ -19,10 +19,10 @@ else
     @foreach(var figu in Figuritas)
     {
         <div>
-        <p>@(figu.id + ".svg")</p>
-        <img src="~/images/jugadores/@(figu.id).svg">
+        <p>@(figu.Id + ".svg")</p>
+        <img src="~/images/jugadores/@(figu.Id).svg">
         <p>@figu.cantidadFiguritas figuritas conseguidas</p>
-        @if (@figu.pegada == "si") 
+        @if (@figu.pegada == true) 
         {<p>Pegada!</p>}
         else
         {<p>no fue pegada</p>}

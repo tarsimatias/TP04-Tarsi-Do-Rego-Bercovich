@@ -34,10 +34,13 @@ public IActionResult GenerarSobre()
     return View("AbrirPaquete");
 }
  [HttpPost]
-public IActionResult pegarFigurita()
+public IActionResult pegarFigurita(List<int> ids)
 {
-BD.PegarFigu(ViewBag.SobreFigus);
-return View("AbrirPaquete");
+    List<Figurita> figuritas = BD.ObtenerFiguritas(ids);
+
+    BD.PegarFigu(figuritas);
+
+    return View("AbrirPaquete");
 }
 
     
